@@ -5,6 +5,6 @@ The team members are:
 - Evgenios Theodorou
 - Alexandros Hadjidemetriou
 - Denis Petkov
-- Markos Kontopoulos username: MKontopoulos125
+- Markos Kontopoulos username
 - Georgios Psaltis
 - Michalis Zouvanis

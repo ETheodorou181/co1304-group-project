@@ -1,16 +1,1 @@
-.instagram-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-    color: white;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
 
-.instagram-button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}

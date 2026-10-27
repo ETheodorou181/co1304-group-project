@@ -5,12 +5,41 @@
 
   <body>
     <p>Hi there, we are learning how to use GitHub pages to host an online web app!!!</p>
-    <a 
-      class="twitter-timeline" href="https://x.com/GooseChaseGame?ref_src=twsrc%5Etfw">Posts by GooseChaseGame
-    </a> 
-    <script 
-      async src="https://platform.x.com/widgets.js" charset="utf-8">
-    </script>
+    <style>
+    .twitter-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 22px;
+        background: #000000;
+        color: #ffffff;
+        border: 2px solid #1DA1F2;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .twitter-btn:hover {
+        transform: translateY(-3px);
+        opacity: 0.85;
+    }
+
+    .twitter-icon {
+        font-size: 22px;
+    }
+</style>
+
+<a href="https://x.com/GooseChaseGame"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="twitter-btn">
+    <span class="twitter-icon">𝕏</span>
+    Follow us on X
+</a>
     <a href="https://www.instagram.com/ChaseTheGoose/"
       target="_blank"
       rel="noopener noreferrer"

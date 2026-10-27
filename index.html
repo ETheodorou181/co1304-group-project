@@ -29,18 +29,27 @@
             font-family: Arial, sans-serif;
             color: white;
         }
-  </style>  
-  <style>
-    .twitter-btn {
+ </style>  
+ <style>
+    .social-widgets {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        z-index: 1000;
+    }
+
+    .social-widgets a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 12px 22px;
-        background: #000000;
-        color: #ffffff;
-        border: 2px solid #1DA1F2;
+        gap: 8px;
+        padding: 12px 20px;
         border-radius: 8px;
+        color: white;
         text-decoration: none;
         font-family: Arial, sans-serif;
         font-size: 16px;
@@ -48,89 +57,66 @@
         transition: transform 0.2s, opacity 0.2s;
     }
 
-    .twitter-btn:hover {
+    .social-widgets a:hover {
         transform: translateY(-3px);
         opacity: 0.85;
     }
 
-    .twitter-icon {
-        font-size: 22px;
+    .instagram-btn {
+        background: #E4405F;
     }
-    </style>
 
-    <a href="https://x.com/GooseChaseGame"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="twitter-btn">
-    <span class="twitter-icon">𝕏</span>
-    Follow us on X
-    </a>
-    
-    <a href="https://www.instagram.com/goosechasegame/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="instagram-button">
-    <img src="https://cdn.simpleicons.org/instagram/E4405F"
-       alt=""
-       width="20"
-       height="20">
-    Follow us on Instagram
-    </a>
-    
-    <style>
-    .instagram-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 20px;
-      background: #ffffff;
-      color: #E4405F;
-      border: 2px solid #E4405F;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      }
-    .instagram-button:hover {
-      background: #E4405F;
-      color: #ffffff;
-      }
-    </style>
-    
-    <a href="https://www.tiktok.com/@goosechasegame"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="tiktok-btn">
-    <span class="tiktok-icon">♪</span>
-    Follow us on TikTok 
-    </a>
-    
-    <style>
     .tiktok-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 22px;
         background: #000000;
-        color: #ffffff;
         border: 2px solid #25F4EE;
-        border-radius: 8px;
-        text-decoration: none;
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        transition: transform 0.2s, opacity 0.2s;
     }
-    
-    .tiktok-btn:hover {
-        transform: translateY(-3px);
-        opacity: 0.85;
+
+    .twitter-btn {
+        background: #000000;
+        border: 2px solid #1DA1F2;
     }
-    
-    .tiktok-icon {
-        font-size: 22px;
+
+    @media (max-width: 600px) {
+        .social-widgets {
+            bottom: 12px;
+            right: 12px;
+            gap: 8px;
+        }
+
+        .social-widgets a {
+            padding: 10px 14px;
+            font-size: 14px;
+        }
     }
     </style>
+     <div class="social-widgets">
+        <a href="https://www.instagram.com/goosechasegame/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-button">
+        <img src="https://cdn.simpleicons.org/instagram/E4405F"
+          alt=""
+          width="20"
+          height="20">
+        Follow us on Instagram
+        </a>
+        
+       <a href="https://x.com/GooseChaseGame"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="twitter-btn">
+        <span class="twitter-icon">𝕏</span>
+        Follow us on X
+        </a>
+        
+       <a href="https://www.tiktok.com/@goosechasegame"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="tiktok-btn">
+        <span class="tiktok-icon">♪</span>
+      Follow us on TikTok 
+      </a>
+     </div> 
   </body>
 
 

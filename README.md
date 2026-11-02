@@ -8,3 +8,4 @@ The team members are:
 - Markos Kontopoulos
 - Georgios Psaltis
 - Michalis Zouvanis
+- Stelios Stylianou

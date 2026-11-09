@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+</head>
+<body>
+
+<h1> Question </h1>
+
+<p id="questionText"></p>
+
+<input type="text" id="answerText" placeholder="Enter your answer"/>
+<input type="button" value="Submit" onclick="submitAnswer()" />
+
+<input type="button" value="Skip" onclick="skipQuestion()" />
+
+<script>
+
+    const questionsTextElement = document.getElementById("questionText");
+    const answerElement = document.getElementById("answerText");
+
+    const params = new URLSearchParams(window.location.search);
+    if (!params.get('sessionID')) {
+        alert('Cant get question without session ID');
+        location.href = "app.html";
+    }
+
+    const sessionID = params.get('sessionID');
+
+    //GET CURRENT QUESTION
+    const QUESTION_URL = `https://codecyprus.org//th/api/question?session=${sessionID}`;
+
+    fetch(QUESTION_URL)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "OK"){
+                const questionText = data.questionText;
+                questionsTextElement.innerHTML = questionText;
+            }
+            else {
+                alert(data.errorMessages)
+            }
+        })
+
+    //ANSWER
+    function submitAnswer() {
+        const answer = answerElement.value;
+        console.log(answer);
+        const ANSWER_URL = `https://codecyprus.org//th/api/answer?session=${sessionID}&answer=${answer}`;
+        fetch(ANSWER_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "OK"){
+                    console.log(data);
+                    if (data.correct) {
+                        if (data.completed){
+                            location.href = `leaderboard.html?sessionID=${sessionID}`;
+                        }
+                        else {
+                            console.log("CORREST AND COMPLETED");
+                            location.reload();
+                        }
+                    }
+                    else {
+                        alert(data.message)
+                    }
+                }
+                else {
+                    alert(data.message)
+                    //todo - adjust score....
+                }
+            });
+    }
+
+    function skipQuestion() {
+    const SKIP_URL = `https://codecyprus.org//th/api/skip?session=${sessionID}`;
+    fetch(SKIP_URL)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "OK"){
+                if (data.completed){
+                    location.href = `leaderboard.html?sessionID=${sessionID}`;
+                }
+                else {
+                    location.reload();
+                }
+            }
+            else {
+                alert(data.errorMessages)
+            }
+        });
+    }
+</script>
+</body>
+</html>

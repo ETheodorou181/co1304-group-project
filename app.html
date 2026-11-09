@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Treasure Hunt App</title>
+</head>
+<body>
+
+<h1>List of treasure hunts</h1>
+
+<div id="treasureHunts">
+
+</div>
+
+<script>
+    const treasureHuntsElement = document.getElementById('treasureHunts');
+    const LIST_URL = "https://codecyprus.org/th/api/list";
+    fetch(LIST_URL)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "OK") {
+                const treasureHunts = data.treasureHunts;
+                for (let i = 0; i < treasureHunts.length; i++) {
+                    treasureHuntsElement.innerHTML += `<a href='start.html?uuid=${treasureHunts[i].uuid}&name=${treasureHunts[i].name}'>${treasureHunts[i].name}</a><br>`;
+                }
+            }
+            else{
+                alert(data.errorMessage);
+            }
+        })
+</script>
+</body>
+</html>

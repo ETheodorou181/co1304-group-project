@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+</head>
+<body>
+
+<ol id="leaderboard">
+
+</ol>
+
+<script>
+
+    const leaderboardElement = document.getElementById('leaderboard');
+
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('sessionID')) {
+        alert("Cannot get question without a session ID.");
+        location.href="app.html";
+    }
+
+    const sessionID = params.get('sessionID');
+    const LEADERBOARD_URL = `https://codecyprus.org/th/api/leaderboard?session=${sessionID}&sorted&limit=10`;
+
+    fetch(LEADERBOARD_URL)
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "OK") {
+            const leaderboard = data.leaderboard;
+            for (let i = 0; i < leaderboard.length; i++) {
+                leaderboardElement.innerHTML += `<li>${leaderboard[i].player} - ${leaderboard[i].score}</li>`
+            }
+        }
+        else {
+            alert(data.errorMessages);
+        }
+    })
+</script>
+</body>
+</html>

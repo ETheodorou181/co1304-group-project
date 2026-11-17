@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Start</title>
+    <script src="Cookies.js"></script>
 </head>
 <body>
 
-<h1> Start <span id="treasureHunt"></span></h1>
+<h1> Start <span id="treasureHuntName"></span></h1>
 
 <p>Please provide your name to start the treasure hunt.</p>
 
@@ -23,7 +24,7 @@
        alert('The name and uuid are needed to start the game.');
        location.href = "app.html";
     }
-    treasureHuntNameElement.value = params.get("name");
+    treasureHuntNameElement.textContent = params.get("name");
 
     function start() {
         const playerName = playerNameElement.value;
@@ -36,6 +37,10 @@
                 if (data.status === "OK") {
                     const numberOfQuestions = data.numOfQuestions;
                     const sessionID = data.session;
+
+                    setCookie("sessionID", sessionID, 1);
+                    setCookie("playerName", playerName, 1);
+
                     location.href = `questions.html?numOfQuestions=${numberOfQuestions}&sessionID=${sessionID}`;
                 }
                 else{

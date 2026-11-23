@@ -90,9 +90,11 @@
         console.log(allCameras);
         if (cameraIndex >= allCameras.length - 1) {
             cameraIndex = 0;
+            startScanner();
         }
         else {
             cameraIndex++;
+            startScanner();
         }
         console.log(cameraIndex);
     }

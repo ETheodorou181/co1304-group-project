@@ -2,19 +2,48 @@
 <html lang="en">
 <head>
     <script src="instascan.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>QR Code Reader</title>
+    <button class="button" onClick="goBack()">Back</button>
+    <style>
+        .button {
+            font-size: 18px;
+            padding: 5px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        #preview {
+            width: 100%;
+            max-height: 500px;
+        }
+    </style>
 
 
 </head>
 <body>
-<button onClick="startScanner()">Scan QR code : </button>
 
 <video id = "preview"></video>
+
+<div class="container" style="text-align: center;">
+    <div class="item">
+        <button class="button" onClick="nextCamera()">Next</button>
+        <button class="button" onClick="startScanner()">Scan QR code</button>
+        <button class="button" onClick="copyAnswer()">Copy</button>
+    </div>
+
+</div>
+
 <div style="margin: 20px; padding: 20px; background-color: black; color: white; text-align: center; " id="content"></div>
 
 
 <script>
+
+    let cameraIndex = 0;
+    let allCameras = [];
+
+
     function startScanner() {
         var opts = {
 
@@ -37,8 +66,9 @@
         var scanner = new Instascan.Scanner(opts);
 
         Instascan.Camera.getCameras().then(function (cameras) {
+            allCameras = cameras;
             if (cameras.length > 0) {
-                scanner.start(cameras[0]);
+                scanner.start(cameras[cameraIndex]);
             } else {
                 console.error('No cameras found.');
                 alert("No cameras found.");
@@ -54,6 +84,26 @@
         });
 
 
+    }
+
+    function nextCamera() {
+        console.log(allCameras);
+        if (cameraIndex >= allCameras.length - 1) {
+            cameraIndex = 0;
+        }
+        else {
+            cameraIndex++;
+        }
+        console.log(cameraIndex);
+    }
+
+    function copyAnswer() {
+        const text = document.getElementById("content").innerHTML;
+        navigator.clipboard.writeText(text);
+    }
+
+    function goBack() {
+        window.history.back();
     }
 
 </script>

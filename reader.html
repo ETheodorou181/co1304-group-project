@@ -42,6 +42,7 @@
 
     let cameraIndex = 0;
     let allCameras = [];
+    var scanner = null
 
 
     function startScanner() {
@@ -63,7 +64,7 @@
 
         };
 
-        var scanner = new Instascan.Scanner(opts);
+        scanner = new Instascan.Scanner(opts);
 
         Instascan.Camera.getCameras().then(function (cameras) {
             allCameras = cameras;

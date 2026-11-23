@@ -1,0 +1,31 @@
+#consentBox{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:450px;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    display:none;
+    z-index:1000;
+}
+#consentHeader{
+    font-size:1.3em;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+.buttons{
+    display:flex;
+    gap:10px;
+    justify-content:flex-end;
+}
+.consentButton, .rejectButton{
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+.consentButton{ background : #4caf50; color : white;}
+.rejectButton{ background : #ccc; color : black;}

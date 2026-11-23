@@ -9,6 +9,28 @@ function getCookie(cookieName) {
     return match ? match.split('=')[1] : null;
 }
 function deleteCookie (cookieName) {
-    document.cookie = cookieName +  "=;  expires=Thu, 18 Dec 2042 12:00:00 UTC; path=/";
+    document.cookie = cookieName +  "=;  expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 
 }
+
+const consentBox = document.getElementById("consentBox");
+const acceptBtn = document.querySelector(".consentButton");
+const rejectBtn = document.querySelector(".rejectButton");
+
+if(getCookie("cookiesConsent") !=="accepted" ){
+    consentBox.style.display = "block";
+}
+
+acceptBtn.addEventListener("click",function() {
+    setCookie("cookiesConsent", "accepted", 365);
+    consentBox.style.display = "none";
+});
+
+rejectBtn.addEventListener("click",function() {
+    deleteCookie("cookiesConsent");
+    consentBox.style.display = "none";
+});
+
+
+
+

@@ -1,7 +1,8 @@
 <html lang="en">
   <head>
     <title>Goose Chase Game</title>
-      <script src = Cookies.js></script>
+      <script src = Cookies.js defer ></script>
+      <link rel = "stylesheet" href = cookiesButton.css>
       <script>
       function getLocation(){
         if (navigator.geolocation) {
@@ -167,5 +168,25 @@
 
   gtag('config', 'G-D9MTCK04VC');
   </script>
+
+  <div id = "consentBox">
+      <header id = "consentHeader">
+          We use cookies
+      </header>
+      <p> For the web app to function properly we need your consent to use cookies</p>
+
+      <div class ="buttons">
+          <button class = "consentButton">
+              Accept cookies
+          </button>
+          <button class ="rejectButton">
+              Reject cookies
+          </button>
+
+      </div>
+
+  </div>
+
+
   </body>
 </html>

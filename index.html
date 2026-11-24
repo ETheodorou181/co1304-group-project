@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
+      <meta charset="UTF-8">
     <title>Goose Chase Game</title>
-      <script src = Cookies.js defer ></script>
-      <link rel = "stylesheet" href = cookiesButton.css>
+      <script src = "Cookies.js" defer ></script>
+      <link rel = "stylesheet" href = "cookiesButton.css">
       <script>
       function getLocation(){
         if (navigator.geolocation) {
@@ -21,7 +23,7 @@
       getLocation();
       </script>
       <style>
-          p {
+          #gameTitle {
               text-align: center;
               font-size: 70px;
               line-height: 1.0;
@@ -123,11 +125,13 @@
           .start-btn:hover {
               background: #e68100;
           }
+
+
       </style>
   </head>
 
   <body>
-    <p>Goose Chase Game</p>
+    <h1 id = "gameTitle">Goose Chase Game</h1>
 
      <div class="social-widgets">
         <a href="https://www.instagram.com/goosechasegame/"

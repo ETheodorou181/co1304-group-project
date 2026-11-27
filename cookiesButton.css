@@ -1,25 +1,25 @@
 #consentBox{
     position:fixed;
-    top:50px;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:90%;
-    max-width:450px;
-    background:#fff;
-    color:#000;
-    border:2px solid #000;
-    text-align:center;
-    padding:20px;
-    border-radius:10px;
-    display:none;
-    z-index:2000;
+    bottom: 20px;
+    left: 20px;
+    width: 400px;
+    max-width: 90%;
+    background-color: #ffffff;
+    color:#542b12;
+    border: 2px solid #d6a96c;
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px;
+    display: block;
+    z-index: 2000;
 }
 #consentBox p {
-    font-size:20px;
-    color:#000;
+    font-size:18px;
+    color:#542b12;
+    text-align: center;
 }
 #consentHeader{
-    font-size:1.3em;
+    font-size:24px;
     font-weight:bold;
     margin-bottom:8px;
 }
@@ -29,10 +29,10 @@
     justify-content:center;
 }
 .consentButton, .rejectButton{
-    padding:8px 16px;
-    border:2px solid #000;
-    border-radius:6px;
+    padding:15px 20px;
+    font-weight: bold;
+    border-radius:15px;
     cursor:pointer;
 }
-.consentButton{ background :#000; color : white;}
-.rejectButton{ background : #fff; color : black;}
+.consentButton{ background :#ff9100; color : white; border:2px solid #c75b00; }
+.rejectButton{ background : #f3dfc0; color : #542b12;border:2px solid #c9a77d;}
